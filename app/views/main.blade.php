@@ -9,6 +9,7 @@
     <title>Daypage</title>
     {{ HTML::style('packages/bootstrap-3.0.3/css/bootstrap.min.css') }}
     {{ HTML::style('main.css') }}
+    @yield('underheader');
   </head>
 
   <body>
@@ -39,6 +40,8 @@
 
     <script src="/jquery1.10.2.js"></script>
     <script src="/packages/bootstrap-3.0.3/js/bootstrap.min.js"></script>
+
+    @yield('underbody')
     
   </body>
 
