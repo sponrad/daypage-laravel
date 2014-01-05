@@ -13,6 +13,8 @@
 
 Route::controller('users', 'UsersController');
 
+Route::get('json/getentries', 'JsonController@getEntries');
+
 Route::get('/', function()
 {
 	return View::make('hello');

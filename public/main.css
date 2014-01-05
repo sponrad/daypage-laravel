@@ -17,5 +17,24 @@ body {
 }
 
 .weekend {
-    background: #ccc;
+    background: #ddd;
+}
+
+#writingbox, #writingbox:focus {
+    position: fixed;
+    top: 200px;
+    z-index: 0;
+    margin: 0px 0px 0px 0px;
+    /*width: calc(100% - 265px); */
+    width: 1140px;
+    height: 70%;
+    resize: none;
+    box-shadow: none;
+    color: #111;
+    outline: none;
+    font-size: 26px;
+    line-height: 1.6em;
+    padding: 0;
+    border: none;
+    overflow-y: scroll;
 }

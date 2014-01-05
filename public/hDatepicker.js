@@ -12,17 +12,30 @@ daysInMonth = function(year, month) {
     return days;
 };
 
+var monthNames = [ "January", "February", "March", "April", "May", "June",
+		   "July", "August", "September", "October", "November", "December" ];
+
+var weekday = new Array(7);
+weekday[0]="Sunday";
+weekday[1]="Monday";
+weekday[2]="Tuesday";
+weekday[3]="Wednesday";
+weekday[4]="Thursday";
+weekday[5]="Friday";
+weekday[6]="Saturday";
+
 drawMonthRow = function(selectedDate){
     //left arrow
     monthRow = '<h2><button class="changeMonth" data-inc=-1><</button>';
 
+
     //display the currently selected month
-    var monthNames = [ "January", "February", "March", "April", "May", "June",
-		       "July", "August", "September", "October", "November", "December" ];
     monthRow += monthNames[ selectedDate.getMonth() ] + " " + selectedDate.getFullYear();
+
 
     //right arrow
     monthRow += '<button class="changeMonth" data-inc=1>></button></h2>';
+
 
 
     hDiv.append( monthRow);
@@ -39,7 +52,7 @@ drawDays = function(selectedDate){
     for (var i=1; i<numberOfDays+1; i++){
 
 	dayType = "weekday";
-	tempDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), i-1);
+	tempDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), i);
 	if (tempDate.getDay() == 0 || tempDate.getDay() == 6){
 	    //its a weekend
 	    dayType = "weekend";
@@ -47,7 +60,6 @@ drawDays = function(selectedDate){
 
 	today = "";
 	t = new Date();
-	console.log(t);
 	if ( t.getFullYear() == selectedDate.getFullYear() &&
 	     t.getMonth() == selectedDate.getMonth() &&
 	     t.getDate() == i
@@ -56,11 +68,11 @@ drawDays = function(selectedDate){
 	}
 
 	selected = "";
-	if (i == selectedDate.getDate()){
+	if ( i == selectedDate.getDate() ){
 	    selected = "selected";
 	}
 	
-	hDiv.append("<button class='dateButton "+dayType+" "+today+" "+selected+"' data-day="+i+">"+i+"</button>");
+	hDiv.append("<button class='dateButton "+dayType+" "+today+" "+selected+"' data-day="+i+" title="+weekday[tempDate.getDay()]+">"+i+"</button>");
 
     }
 }
@@ -90,5 +102,7 @@ $(document).ready( function(){
 	hDiv.html("");
 	drawMonthRow(selectedDate);
 	drawDays(selectedDate);
+
+	//get the information for this day?, or show it for this month.. need something to make sure we have the data for the adjacent months
     });
 });
