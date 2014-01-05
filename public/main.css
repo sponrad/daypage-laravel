@@ -6,3 +6,16 @@ body {
     width: 400px;
     margin: 0 auto;
 }
+
+
+.selected {
+    border: solid black 3px;
+}
+
+.today {
+    color: red;
+}
+
+.weekend {
+    background: #ccc;
+}
