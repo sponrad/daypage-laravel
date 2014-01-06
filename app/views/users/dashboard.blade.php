@@ -74,8 +74,21 @@
   <script src="/wysihtml5-0.0advanced.js"></script>
   <script src="/wysihtml5-0.3.0.js"></script>
   <script>
+	    dpFormat = function(date){
+     fDate = "" + date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2);
+     return fDate;
+   }
  $(document).ready( function(){
      $("#composeView").hide();
+
+     hDatepicker( $("#hDatepicker"), {
+       onDateSelect: function(date){
+	 $("#feed").html("loading");
+	 fDate = dpFormat(date);
+	 $("#feed").load("/ajax/getentries?date=" + fDate);
+       }
+     }
+     );
      
      $.getJSON( "/json/getentries", function( data ) {
        var items = [];
@@ -128,8 +141,9 @@
      $("#viewContainer").on("click", "#saveButton",function(e){
        saveEntry( $("#writingbox") );
      });
-
-     $("#feed").load("/ajax/getentries");
+     $("#feed").html("loading");
+     date = new Date();
+     $("#feed").load("/ajax/getentries?date=20140106");
 
    });
   </script>

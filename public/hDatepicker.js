@@ -1,9 +1,6 @@
 /*hDatepicker 
 Conrad Frame*/
 
-//find the div
-hDiv = $("#hDatepicker")
-
 //get the days in the month
 daysInMonth = function(year, month) {
     var s = new Date(year, month, 1),
@@ -77,7 +74,14 @@ drawDays = function(selectedDate){
     }
 }
 
-$(document).ready( function(){
+//$(document).ready( function(){
+hDatepicker = function(target, options){
+
+    onDateSelect = options.onDateSelect;
+
+    //find the div
+    hDiv = target;
+
     selectedDate = new Date();
 
     hDiv.attr('unselectable', 'on')
@@ -102,7 +106,9 @@ $(document).ready( function(){
 	hDiv.html("");
 	drawMonthRow(selectedDate);
 	drawDays(selectedDate);
+	onDateSelect(d);
 
 	//get the information for this day?, or show it for this month.. need something to make sure we have the data for the adjacent months
     });
-});
+//});
+}
