@@ -65,7 +65,9 @@ drawDays = function(selectedDate){
 	}
 
 	selected = "";
-	if ( i == selectedDate.getDate() ){
+	if ( t.getFullYear() == selectedDate.getFullYear() &&
+	     t.getMonth() == selectedDate.getMonth() &&
+	     i == selectedDate.getDate() ){
 	    selected = "selected";
 	}
 	
