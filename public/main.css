@@ -12,12 +12,12 @@ body {
     border: solid black 3px;
 }
 
-.today {
-    color: red;
-}
-
 .weekend {
     background: #ddd;
+}
+
+.today {
+    color: blue;
 }
 
 #writingbox, #writingbox:focus {

@@ -56,7 +56,7 @@
       </div> <!-- toolbar -->
     </div> <!-- toolbarWrapper -->
     <div id="writingboxWrapper">
-      <textarea id="writingbox" name="writingbox" class="writingbox" placeholder="Start writing" spellcheck="false" wrapp="off"></textarea>
+      <textarea id="writingbox" name="writingbox" class="writingbox" placeholder="Start writing" spellcheck="false"></textarea>
     </div>
   </div>
 
@@ -107,6 +107,29 @@
        $("#composeView").hide();
 
      });
+
+     function saveEntry( target ){
+       var id = $(target).attr("id");
+       var content = $(target).val();
+       var date = new Date();
+       var datatosend = {id: id, content: content, date: date};
+       $.post("/json/saveentry", datatosend, 
+	      function(data){
+           if (data.response == "1"){
+	     console.log("successful save");
+           }
+	   else{
+	     console.log("unsuccessful save");
+	   }
+         }, 'json' );
+     }
+
+
+     $("#viewContainer").on("click", "#saveButton",function(e){
+       saveEntry( $("#writingbox") );
+     });
+
+     $("#feed").load("/ajax/getentries");
 
    });
   </script>

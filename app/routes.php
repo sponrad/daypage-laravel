@@ -14,6 +14,9 @@
 Route::controller('users', 'UsersController');
 
 Route::get('json/getentries', 'JsonController@getEntries');
+Route::get('json/saveentry', 'JsonController@postSaveEntry');
+
+Route::get('ajax/getentries', 'AjaxController@getEntries');
 
 Route::get('/', function()
 {
