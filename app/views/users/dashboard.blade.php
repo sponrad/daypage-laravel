@@ -9,6 +9,7 @@
   </div>
 
   <div id="editorView">
+    Default Value
   </div>
 
 </div>
@@ -31,6 +32,8 @@
    }
 
    $(document).ready( function(){
+     selectedDate = new Date();
+
      $("#editorView").hide();
 
      hDatepicker( $("#hDatepicker"), {
@@ -38,6 +41,10 @@
 	 $("#feed").html("loading");
 	 fDate = dpFormat(date);
 	 $("#feed").load("/ajax/getentries?date=" + fDate);
+	 selectedDate = date;
+	 $("#editor").html("");
+	 $("#editorView").hide();
+	 $("#feedView").show();
        }
      }
 		 );
@@ -46,19 +53,17 @@
        $("#feedView").hide();
        $("#editorView").show();
 
-       $("#hDatepicker").bind("click", function(e){
-	 e.preventDefault();
+       $("#editorView").html("loading");
+       
+       $("#editorView").load("/ajax/loadeditor", function(){
+	 var editor = new wysihtml5.Editor("writingbox", {
+	   toolbar:      "toolbar",
+	   stylesheets:  "/wysihtml5-stylesheet.css",
+	   parserRules:  wysihtml5ParserRules
+	 });
+
+	 $("#writingbox").focus();	 
        });
-
-       $("editorView").load("/ajax/loadeditor");
-
-       var editor = new wysihtml5.Editor("writingbox", {
-	 toolbar:      "toolbar",
-	 stylesheets:  "wysihtml5-stylesheet.css",
-	 parserRules:  wysihtml5ParserRules
-       });
-
-       $("#writingbox").focus();
 
      });
 
@@ -69,10 +74,11 @@
      });
 
      function saveEntry( target ){
-       var id = $(target).attr("id");
+       //provide id to save existing
+       //var id = $(target).attr("id");
        var content = $(target).val();
-       var date = new Date();
-       var datatosend = {id: id, content: content, date: date};
+       var date = dpFormat(selectedDate);
+       var datatosend = {content: content, date: date};
        $.post("/json/saveentry", datatosend, 
 	      function(data){
            if (data.response == "1"){

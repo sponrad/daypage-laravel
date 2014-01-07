@@ -26,7 +26,8 @@ class AjaxController extends BaseController {
       $entry = null;
     }
 
-    return View::make('ajaxLoadEditor')->with(array('entry' => $entry));
+    //return View::make('ajaxLoadEditor')->with(array('entry' => $entry));
+    return View::make('ajaxLoadEditor');
   }
 
 }

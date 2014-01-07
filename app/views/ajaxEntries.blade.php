@@ -1,3 +1,9 @@
+@if (count( $entries ) == 0)
+  <div>
+    No entries on this day
+  </div>
+@endif
+
 @foreach ($entries as $entry)
 
   <?php
