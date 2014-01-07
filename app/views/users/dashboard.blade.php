@@ -95,6 +95,28 @@
        saveEntry( $("#writingbox") );
      });
 
+     $("#feed").on("click", ".owner", function(e){
+       e.preventDefault();
+       $("#feedView").hide();
+       $("#editorView").show();
+
+       $("#editorView").html("loading");
+
+       var id = $(e.target).attr("id");
+
+       var datatosend = {id: id};
+       
+       $("#editorView").load("/ajax/loadeditor", datatosend, function(e){
+	 var editor = new wysihtml5.Editor("writingbox", {
+	   toolbar:      "toolbar",
+	   stylesheets:  "/wysihtml5-stylesheet.css",
+	   parserRules:  wysihtml5ParserRules
+	 });
+
+	 $("#writingbox").focus();	 
+       });       
+     });
+
      $("#feed").html("loading");
      date = new Date();
      $("#feed").load("/ajax/getentries?date=" + dpFormat(date));

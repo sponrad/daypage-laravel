@@ -16,8 +16,15 @@
 
   ?>
 
-  <div>
-    <p><img src="{{ $grav_url }}" /> {{ $entry->user->firstname }} {{ $entry->user->lastname }}</p>
+  <div id="{{ $entry->id }}">
+    <p>
+      <img src="{{ $grav_url }}" />
+      @if( $entry->user_id == Auth::user()->id )
+	<a href="" class="owner" id="{{ $entry->id }}" }}>{{ $entry->user->firstname }} {{ $entry->user->lastname }}</a>
+      @else
+	{{ $entry->user->firstname }} {{ $entry->user->lastname }}
+      @endif
+    </p>
     <p>{{ $entry->content }}</p>
   </div>
 

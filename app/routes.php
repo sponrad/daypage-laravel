@@ -18,7 +18,8 @@ Route::get('json/saveentry', 'JsonController@postSaveEntry');
 Route::post('json/saveentry', 'JsonController@postSaveEntry');
 
 Route::get('ajax/getentries', 'AjaxController@getEntries');
-Route::get('ajax/loadeditor', 'AjaxController@loadEditor');
+Route::get('ajax/loadeditor', 'AjaxController@postLoadEditor');
+Route::post('ajax/loadeditor', 'AjaxController@postLoadEditor');
 
 Route::get('/', function()
 {

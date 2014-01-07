@@ -103,7 +103,6 @@ hDatepicker = function(target, options){
     
     hDiv.on("click", ".dateButton", function(){
 	d = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), parseInt(this.getAttribute("data-day")));
-	console.log("clicked: " + d);
 	selectedDate = d;
 	hDiv.html("");
 	drawMonthRow(selectedDate);

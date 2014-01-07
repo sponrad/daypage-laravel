@@ -16,18 +16,18 @@ class AjaxController extends BaseController {
     return View::make('ajaxEntries')->with(array('entries' => $entries));
   }
 
-  public function loadEditor(){
+  public function postLoadEditor(){
     $user = Auth::user();
     
     if (Input::has("id")){
-      $entry = Entry::find(parseint(Input::get("id")));
+      $content = Entry::find( parseint(Input::get("id")) )->content;
     }
     else{
-      $entry = null;
+      $content = "";
     }
 
-    //return View::make('ajaxLoadEditor')->with(array('entry' => $entry));
-    return View::make('ajaxLoadEditor');
+    return View::make('ajaxLoadEditor')->with(array('content' => $content));
+    //return View::make('ajaxLoadEditor');
   }
 
 }
