@@ -95,7 +95,7 @@
        saveEntry( $("#writingbox") );
      });
 
-     $("#feed").on("click", ".owner", function(e){
+     $("#feed").on("click", ".edit", function(e){
        e.preventDefault();
        $("#feedView").hide();
        $("#editorView").show();
@@ -103,6 +103,7 @@
        $("#editorView").html("loading");
 
        var id = $(e.target).attr("id");
+       console.log(id);
 
        var datatosend = {id: id};
        

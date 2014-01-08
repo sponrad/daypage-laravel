@@ -20,7 +20,8 @@ class AjaxController extends BaseController {
     $user = Auth::user();
     
     if (Input::has("id")){
-      $content = Entry::find( parseint(Input::get("id")) )->content;
+      $content = Entry::find(intval(Input::get('id')))->content;
+      //$content = Entry::find(1)->content;
     }
     else{
       $content = "";
