@@ -117,7 +117,7 @@
        });       
      });
 
-     $"#feed").on("click", ".delete", function(e){
+     $("#feed").on("click", ".delete", function(e){
        //send it off to postJsonDelete
        //if deleted (response = 1) then remove that entry div
      });

@@ -24,14 +24,11 @@ weekday[6]="Saturday";
 drawMonthRow = function(selectedDate){
     //left arrow
     monthRow = '<h2><button class="changeMonth" data-inc=-1><</button>';
-
+    //right arrow
+    monthRow += '<button class="changeMonth" data-inc=1>></button>';
 
     //display the currently selected month
-    monthRow += monthNames[ selectedDate.getMonth() ] + " " + selectedDate.getFullYear();
-
-
-    //right arrow
-    monthRow += '<button class="changeMonth" data-inc=1>></button></h2>';
+    monthRow += monthNames[ selectedDate.getMonth() ] + " " + selectedDate.getFullYear() + "</h2>";
 
 
 

@@ -7,13 +7,20 @@ body {
     margin: 0 auto;
 }
 
+.dateButton{
+    border: solid black 1px;
+    margin: 2px 0px 2px 0px;
+    background: white;
+    width: 34px;
+}
 
 .selected {
     border: solid black 3px;
+    margin: 0px;
 }
 
 .weekend {
-    background: #ddd;
+    background: #f1fff3;
 }
 
 .today {
@@ -45,8 +52,18 @@ body {
 
 
 .delete{
+    float: right;
     visibility: hidden;
     color: red;
+}
+
+.entryDiv{
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.entryDiv:hover{
+    background: #f1f9ff;
 }
 .entryDiv:hover .delete{
     visibility: visible;    
