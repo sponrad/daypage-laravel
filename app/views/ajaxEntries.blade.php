@@ -21,7 +21,7 @@
       <img src="{{ $grav_url }}" />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
-	<a href="" class="edit" id="{{ $entry->id }}" }}>Edit</a>
+	<a href="" class="edit" entryId="{{ $entry->id }}" }}>Edit</a>
       @endif
     </p>
     <p>{{ $entry->content }}</p>

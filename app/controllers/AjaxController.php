@@ -20,14 +20,20 @@ class AjaxController extends BaseController {
     $user = Auth::user();
     
     if (Input::has("id")){
-      $content = Entry::find(intval(Input::get('id')))->content;
+      $entry = Entry::find(intval(Input::get('id')));
+      $content = $entry->content;
       //$content = Entry::find(1)->content;
+      $id = $entry->id;
     }
     else{
       $content = "";
+      $id = "";
     }
 
-    return View::make('ajaxLoadEditor')->with(array('content' => $content));
+    return View::make('ajaxLoadEditor')->with(array(
+      'content' => $content,
+      'id' => $id
+    ));
     //return View::make('ajaxLoadEditor');
   }
 

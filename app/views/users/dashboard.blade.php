@@ -16,7 +16,7 @@
 
 
 @section('underheader')
-  <link media="all" type="text/css" rel="stylesheet" href="/wysihtml5-stylesheet.css"
+  <link media="all" type="text/css" rel="stylesheet" href="/wysihtml5-stylesheet.css">
 @stop
 
 
@@ -75,19 +75,19 @@
 
      function saveEntry( target ){
        //provide id to save existing
-       //var id = $(target).attr("id");
+       var id = $('#writingbox').attr("entryId");
        var content = $(target).val();
        var date = dpFormat(selectedDate);
-       var datatosend = {content: content, date: date};
+       var datatosend = {id: id, content: content, date: date};
        $.post("/json/saveentry", datatosend, 
 	      function(data){
-           if (data.response == "1"){
+	   if (data.response == "1"){
 	     console.log("successful save");
-           }
+	   }
 	   else{
 	     console.log("unsuccessful save");
 	   }
-         }, 'json' );
+	 }, 'json' );
      }
 
 
@@ -102,8 +102,7 @@
 
        $("#editorView").html("loading");
 
-       var id = $(e.target).attr("id");
-       console.log(id);
+       var id = $(e.target).attr("entryId");
 
        var datatosend = {id: id};
        
@@ -114,7 +113,7 @@
 	   parserRules:  wysihtml5ParserRules
 	 });
 
-	 $("#writingbox").focus();	 
+
        });       
      });
 
