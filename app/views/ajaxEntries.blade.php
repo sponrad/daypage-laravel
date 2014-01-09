@@ -16,12 +16,13 @@
 
   ?>
 
-  <div id="{{ $entry->id }}">
+  <div id="{{ $entry->id }}" class="entryDiv">
     <p>
       <img src="{{ $grav_url }}" />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
 	<a href="" class="edit" entryId="{{ $entry->id }}" }}>Edit</a>
+	<a href="" class="delete" entryId"{{ $entry->id }}" }}>Delete</a>
       @endif
     </p>
     <p>{{ $entry->content }}</p>

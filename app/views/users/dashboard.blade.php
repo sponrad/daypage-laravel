@@ -83,6 +83,8 @@
 	      function(data){
 	   if (data.response == "1"){
 	     console.log("successful save");
+	     //load the entryid into the writing box
+	     $("#writingbox").attr("entryId", data.entryId);
 	   }
 	   else{
 	     console.log("unsuccessful save");
@@ -112,9 +114,12 @@
 	   stylesheets:  "/wysihtml5-stylesheet.css",
 	   parserRules:  wysihtml5ParserRules
 	 });
-
-
        });       
+     });
+
+     $"#feed").on("click", ".delete", function(e){
+       //send it off to postJsonDelete
+       //if deleted (response = 1) then remove that entry div
      });
 
      $("#feed").html("loading");
