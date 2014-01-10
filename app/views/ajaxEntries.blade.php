@@ -1,3 +1,5 @@
+{{ $date }}
+
 @if (count( $entries ) == 0)
   <div>
     No entries on this day

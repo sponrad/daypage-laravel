@@ -5,15 +5,17 @@ class AjaxController extends BaseController {
     $user = Auth::user();
 
     if (Input::has("date")){
-      $date = date('Y-m-d H:i:s', strtotime( Input::get('date') )); 
+      $date = date('Y-m-d', strtotime( Input::get('date') )); 
       $entries = Entry::where('user_id', '=', $user->id)->where('date', '=', $date)->get();      
     }
     else{
       $entries = Entry::where('user_id', '=', $user->id)->get();
     }
    
-   
-    return View::make('ajaxEntries')->with(array('entries' => $entries));
+    return View::make('ajaxEntries')->with(
+      array('entries' => $entries,
+	    'date' => $date,
+	    ));
   }
 
   public function postLoadEditor(){

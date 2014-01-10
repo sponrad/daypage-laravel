@@ -1,7 +1,6 @@
 /*hDatepicker 
-Conrad Frame*/
+  Conrad Frame*/
 
-//get the days in the month
 daysInMonth = function(year, month) {
     var s = new Date(year, month, 1),
     e = new Date(year, month + 1, 1),
@@ -21,14 +20,14 @@ weekday[4]="Thursday";
 weekday[5]="Friday";
 weekday[6]="Saturday";
 
-drawMonthRow = function(selectedDate){
+drawMonthRow = function(selectedDate, viewDate){
     //left arrow
     monthRow = '<h2><button class="changeMonth" data-inc=-1><</button>';
     //right arrow
     monthRow += '<button class="changeMonth" data-inc=1>></button>';
 
-    //display the currently selected month
-    monthRow += monthNames[ selectedDate.getMonth() ] + " " + selectedDate.getFullYear() + "</h2>";
+    //display the currently viewed month
+    monthRow += monthNames[ viewDate.getMonth() ] + " " + viewDate.getFullYear() + "</h2>";
 
 
 
@@ -36,17 +35,17 @@ drawMonthRow = function(selectedDate){
 }
 
 
-drawDays = function(selectedDate){
-    numberOfDays = daysInMonth(selectedDate.getYear(), selectedDate.getMonth());
+drawDays = function(selectedDate, viewDate){
+    numberOfDays = daysInMonth(viewDate.getYear(), viewDate.getMonth());
 
     today = new Date().getDate();
 
     
-    //for each day in the selected month print the day
+    //for each day in the viewed month print the day
     for (var i=1; i<numberOfDays+1; i++){
 
 	dayType = "weekday";
-	tempDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), i);
+	tempDate = new Date(viewDate.getFullYear(), viewDate.getMonth(), i);
 	if (tempDate.getDay() == 0 || tempDate.getDay() == 6){
 	    //its a weekend
 	    dayType = "weekend";
@@ -54,16 +53,16 @@ drawDays = function(selectedDate){
 
 	today = "";
 	t = new Date();
-	if ( t.getFullYear() == selectedDate.getFullYear() &&
-	     t.getMonth() == selectedDate.getMonth() &&
+	if ( t.getFullYear() == viewDate.getFullYear() &&
+	     t.getMonth() == viewDate.getMonth() &&
 	     t.getDate() == i
-	){
+	   ){
 	    today = "today";
 	}
 
 	selected = "";
-	if ( t.getFullYear() == selectedDate.getFullYear() &&
-	     t.getMonth() == selectedDate.getMonth() &&
+	if ( viewDate.getFullYear() == selectedDate.getFullYear() &&
+	     viewDate.getMonth() == selectedDate.getMonth() &&
 	     i == selectedDate.getDate() ){
 	    selected = "selected";
 	}
@@ -82,6 +81,7 @@ hDatepicker = function(target, options){
     hDiv = target;
 
     selectedDate = new Date();
+    viewDate = new Date();
 
     hDiv.attr('unselectable', 'on')
         .css('user-select', 'none')
@@ -89,24 +89,22 @@ hDatepicker = function(target, options){
     hDiv.bind("dblclick", function(e){
 	e.preventDefault();
     });
-    drawMonthRow(selectedDate);
-    drawDays(selectedDate);
+    drawMonthRow(selectedDate, viewDate);
+    drawDays(selectedDate, viewDate);
     hDiv.on("click", ".changeMonth", function(){
-	selectedDate.setMonth(selectedDate.getMonth() + parseInt(this.getAttribute("data-inc")));
+	viewDate.setMonth(viewDate.getMonth() + parseInt(this.getAttribute("data-inc")));
 	hDiv.html("");
-	drawMonthRow(selectedDate);
-	drawDays(selectedDate);
+	drawMonthRow(selectedDate, viewDate);
+	drawDays(selectedDate, viewDate);
     });
     
     hDiv.on("click", ".dateButton", function(){
-	d = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), parseInt(this.getAttribute("data-day")));
+	d = new Date(viewDate.getFullYear(), viewDate.getMonth(), parseInt(this.getAttribute("data-day")));
 	selectedDate = d;
 	hDiv.html("");
-	drawMonthRow(selectedDate);
-	drawDays(selectedDate);
+	drawMonthRow(selectedDate, viewDate);
+	drawDays(selectedDate, viewDate);
 	onDateSelect(d);
 
-	//get the information for this day?, or show it for this month.. need something to make sure we have the data for the adjacent months
     });
-//});
 }

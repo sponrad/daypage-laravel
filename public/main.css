@@ -13,14 +13,14 @@ body {
 
 .dateButton{
     border: solid black 1px;
-    margin: 2px -1px 2px 0px;
+    margin: 2px -1px 2px -1px;
     background: white;
     width: 34px;
     
 }
 
 .selected {
-    border: solid black 3px;
+    border: solid black 4px;
     margin: 0px;
 }
 
@@ -29,7 +29,7 @@ body {
 }
 
 .today {
-    color: blue;
+    background: #ff9898;
 }
 
 #writingbox, #writingbox:focus {
