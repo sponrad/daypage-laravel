@@ -18,7 +18,7 @@
 
   <div id="{{ $entry->id }}" class="entryDiv">
     <p>
-      <img src="{{ $grav_url }}" />
+      <img src="{{ $grav_url }}" height=40 width=40 />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
 	<a href="" class="edit" entryId="{{ $entry->id }}" }}>Edit</a>

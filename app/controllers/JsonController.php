@@ -17,7 +17,7 @@ class JsonController extends BaseController {
       $entry = Entry::find( intval(Input::get('id')) );
       if ($entry->user_id != $user->id){
 	return Response::json( array('response' => 0, 'entryId' => $entry->id) );
-      }
+      } 
     }
     else{
       $entry = new Entry;
@@ -26,9 +26,8 @@ class JsonController extends BaseController {
     //    $entry->user_id = 1;
     $entry->date = Input::get('date'); 
     $entry->content = Input::get('content');
-    $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100)
-    
-    $entry->push();
+    $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100);    
+    $entry->save();
 
     return Response::json( array('response' => 1, 'entryId' => $entry->id) );
   }

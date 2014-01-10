@@ -20,7 +20,7 @@ body {
 }
 
 .weekend {
-    background: #f1fff3;
+    background: #e1ffe3;
 }
 
 .today {
@@ -65,6 +65,7 @@ body {
 .entryDiv:hover{
     background: #f1f9ff;
 }
+
 .entryDiv:hover .delete{
     visibility: visible;    
     transition: all 1s;
