@@ -23,7 +23,6 @@ class JsonController extends BaseController {
       $entry = new Entry;
     }
     $entry->user()->associate($user);
-    //    $entry->user_id = 1;
     $entry->date = Input::get('date'); 
     $entry->content = Input::get('content');
     $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100);    
@@ -35,11 +34,13 @@ class JsonController extends BaseController {
   public function postDeleteEntry(){
     $user = Auth::user();
     $entry = Entry::find( intval( Input::get('id')));
-    if ($entry->user_id != $user->id){
+    if ($entry->user_id == $user->id){
+      $entry->delete();
+      return Response::json( array('response' => 1) );      
+    }
+    else {
       return Response::json( array('response' => 0, 'entryId' => $entry->id) );
     }
-    $entry->delete();
-    
   }
 
 }

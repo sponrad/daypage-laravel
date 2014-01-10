@@ -118,8 +118,23 @@
      });
 
      $("#feed").on("click", ".delete", function(e){
-       //send it off to postJsonDelete
-       //if deleted (response = 1) then remove that entry div
+       e.preventDefault();
+       if (confirm("Delete? Are you sure?")){
+	 var id = $(e.target).attr("entryId");
+	 var datatosend = {id: id};
+	 $.post("/json/deleteentry", datatosend, 
+		function(data){
+	     if (data.response == "1"){
+	       console.log("successful delete");
+	       $(e.target).parents(".entryDiv").fadeOut(300, function(){
+		 $(this).remove();
+		 });
+	     }
+	     else{
+	       console.log("unsuccessful delete");
+	     }
+	   }, 'json' );	 
+       }
      });
 
      $("#feed").html("loading");

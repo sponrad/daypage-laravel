@@ -1,3 +1,7 @@
+html {
+    overflow-y: scroll;
+}
+
 body {
     padding-top: 40px;
 }
@@ -9,9 +13,10 @@ body {
 
 .dateButton{
     border: solid black 1px;
-    margin: 2px 0px 2px 0px;
+    margin: 2px -1px 2px 0px;
     background: white;
     width: 34px;
+    
 }
 
 .selected {
@@ -20,7 +25,7 @@ body {
 }
 
 .weekend {
-    background: #e1ffe3;
+    background: #a1ffa3;
 }
 
 .today {
@@ -69,4 +74,8 @@ body {
 .entryDiv:hover .delete{
     visibility: visible;    
     transition: all 1s;
+}
+
+.entryDiv img {
+    border-radius: 5px;
 }
