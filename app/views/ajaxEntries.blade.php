@@ -1,8 +1,8 @@
 {{ $date }}
 
 @if (count( $entries ) == 0)
-  <div>
-    No entries on this day
+  <div style="text-align: center;">
+    <h3>No entries for this day, you should add something you did</h3>
   </div>
 @endif
 
@@ -23,8 +23,8 @@
       <img src="{{ $grav_url }}" height=40 width=40 />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
-	<a href="" class="edit" entryId="{{ $entry->id }}" }}>Edit</a>
-	<a href="" class="delete" entryId="{{ $entry->id }}" }}>Delete</a>
+	<a href="" class="edit" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil"></span> Edit</a>
+	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span> Delete</a>
       @endif
     </p>
     <p>{{ $entry->content }}</p>

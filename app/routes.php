@@ -24,5 +24,5 @@ Route::post('ajax/loadeditor', 'AjaxController@postLoadEditor');
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return ('hello there');
 });

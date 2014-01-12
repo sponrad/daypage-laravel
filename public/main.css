@@ -2,8 +2,12 @@ html {
     overflow-y: scroll;
 }
 
-body {
-    padding-top: 40px;
+.navbar {
+    margin-bottom: 0px;
+}
+
+#content-container {
+    min-height: 1000px;
 }
 
 .form-signup {
@@ -13,7 +17,7 @@ body {
 
 .dateButton{
     border: solid black 1px;
-    margin: 2px -1px 2px -1px;
+    margin: 3px -1px 3px -1px;
     background: white;
     width: 34px;
     
@@ -34,7 +38,7 @@ body {
 
 #writingbox, #writingbox:focus {
     position: fixed;
-    top: 200px;
+    top: 250px;
     z-index: 0;
     margin: 0px 0px 0px 0px;
     /*width: calc(100% - 265px); */
@@ -44,7 +48,7 @@ body {
     box-shadow: none;
     color: #111;
     outline: none;
-    font-size: 26px;
+    font-size: 20px;
     line-height: 1.6em;
     padding: 0;
     border: none;

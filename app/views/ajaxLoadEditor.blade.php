@@ -1,12 +1,12 @@
 <button id="cancelComposeButton">Cancel</button>
-<button id="saveButton">Save</button>
+<button id="saveButton"><span class="glyphicon glyphicon-ok"></span>Save</button>
 
 <div id="toolbarWrapper">
   <div id="toolbar" style="display: none;">
     
-    <a data-wysihtml5-command="bold" title="CTRL+B">bold</a> |
-    <a data-wysihtml5-command="italic" title="CTRL+I">italic</a> |
-    <a data-wysihtml5-command="createLink">insert link</a> |
+    <a data-wysihtml5-command="bold" title="CTRL+B"><span class="glyphicon glyphicon-bold"></span></a> |
+    <a data-wysihtml5-command="italic" title="CTRL+I"><span class="glyphicon glyphicon-italic"></span></a> |
+    <a data-wysihtml5-command="createLink"><span class="glyphicon glyphicon-link"></span></a> |
     <a data-wysihtml5-command="insertImage">insert image</a> |
     <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1">h1</a> |
     <a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2">h2</a> |

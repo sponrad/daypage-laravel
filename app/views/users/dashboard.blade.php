@@ -1,19 +1,15 @@
 <div id="hDatepicker"></div>
-
 <div id="viewContainer">
-
   <div id="feedView">
-    <button id="composeButton">New Entry</button>
-    <button id="filterButton">Filter</button>
+    <button id="composeButton"><span class="glyphicon glyphicon-plus"></span>New Entry</button>
+<!-- <button id="filterButton">Filter</button> -->
     <div id="feed"></div>
   </div>
 
   <div id="editorView">
     Default Value
   </div>
-
 </div>
-
 
 @section('underheader')
   <link media="all" type="text/css" rel="stylesheet" href="/wysihtml5-stylesheet.css">
@@ -24,6 +20,7 @@
   <script src="/hDatepicker.js"></script>
   <script src="/wysihtml5-0.0advanced.js"></script>
   <script src="/wysihtml5-0.3.0.js"></script>
+  <script src="/notify.min.js"></script>
   <script>
 
    dpFormat = function(date){
@@ -82,14 +79,17 @@
        $.post("/json/saveentry", datatosend, 
 	      function(data){
 	   if (data.response == "1"){
-	     console.log("successful save");
 	     //load the entryid into the writing box
 	     $("#writingbox").attr("entryId", data.entryId);
+
+	     $.notify("Saved", "success");
 	   }
 	   else{
 	     console.log("unsuccessful save");
+	     $.notify("Error");
 	   }
 	 }, 'json' );
+
      }
 
 
