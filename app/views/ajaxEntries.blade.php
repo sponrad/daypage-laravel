@@ -1,8 +1,9 @@
-{{ $date }}
+<!-- {{ $date }} -->
 
 @if (count( $entries ) == 0)
   <div style="text-align: center;">
-    <h3>No entries for this day, you should add something you did</h3>
+    <br><br><br><br><br>
+    <h3>Nothing here, click <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span>New Entry</button> to add something</h3>
   </div>
 @endif
 

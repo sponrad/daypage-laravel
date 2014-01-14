@@ -1,5 +1,5 @@
-<button id="cancelComposeButton">Cancel</button>
-<button id="saveButton"><span class="glyphicon glyphicon-ok"></span>Save</button>
+<button type="button" class="btn" id="cancelComposeButton">Cancel</button>
+<button type="button" class="btn btn-primary"  id="saveButton"><span class="glyphicon glyphicon-ok"></span>Save</button>
 
 <div id="toolbarWrapper">
   <div id="toolbar" style="display: none;">
