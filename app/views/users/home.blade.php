@@ -1,18 +1,22 @@
-<div id="hDatepicker"></div>
-<div id="viewContainer">
-  <div id="feedView">
-    <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span>New Entry</button>
-    <!-- <button id="filterButton">Filter</button> -->
-    <div id="feed"></div>
-  </div>
+@extends('main')
 
-  <div id="editorView">
-  </div>
+@section('content')
+  <div id="hDatepicker"></div>
+  <div id="viewContainer">
+    <div id="feedView">
+      <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span>New Entry</button>
+      <!-- <button id="filterButton">Filter</button> -->
+      <div id="feed"></div>
+    </div>
 
-  <div class="homeLoading">
+    <div id="editorView">
+    </div>
+
+    <div class="homeLoading">
+    </div>
+    
   </div>
-  
-</div>
+@stop
 
 @section('underheader')
   <link media="all" type="text/css" rel="stylesheet" href="/wysihtml5-stylesheet.css">

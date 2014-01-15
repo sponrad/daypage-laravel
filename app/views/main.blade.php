@@ -22,7 +22,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Daypage</a>
+            <a class="navbar-brand" href="/">Daypage</a>
           </div>
           <div class="navbar-collapse collapse">
 
@@ -62,8 +62,7 @@
       <!-- CONTENT -->    
 
       <div class="container">
-
-	{{ $content }}
+	@yield('content')
       </div>
     </div>
 

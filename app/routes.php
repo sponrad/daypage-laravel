@@ -11,8 +11,6 @@
 |
 */
 
-Route::controller('users', 'UsersController');
-
 Route::get('json/getentries', 'JsonController@getEntries');
 Route::get('json/saveentry', 'JsonController@postSaveEntry');
 Route::post('json/saveentry', 'JsonController@postSaveEntry');
@@ -22,7 +20,9 @@ Route::get('ajax/getentries', 'AjaxController@getEntries');
 Route::get('ajax/loadeditor', 'AjaxController@postLoadEditor');
 Route::post('ajax/loadeditor', 'AjaxController@postLoadEditor');
 
+Route::controller('users', 'UsersController');
+
 Route::get('/', function()
 {
-	return ('hello there');
+	return View::make('landing');
 });

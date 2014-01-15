@@ -1,4 +1,4 @@
-<button type="button" class="btn" id="cancelComposeButton">Cancel</button>
+<button type="button" class="btn" id="cancelComposeButton">Close</button>
 <button type="button" class="btn btn-primary"  id="saveButton"><span class="glyphicon glyphicon-ok"></span>Save</button>
 
 <div id="toolbarWrapper">
