@@ -6,7 +6,7 @@ class AjaxController extends BaseController {
 
     if (Input::has("date")){
       $date = date('Y-m-d', strtotime( Input::get('date') )); 
-      $entries = Entry::where('user_id', '=', $user->id)->where('date', '=', $date)->get();
+      $entries = Entry::where('user_id', '=', $user->id)->where('date', '=', $date)->orderBy('created_at', 'dsc')->get();
 
       $groupEntries = array();
       foreach($user->groups()->get() as $group)

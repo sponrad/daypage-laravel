@@ -56,7 +56,7 @@
      
      $("#viewContainer").on("click", "#composeButton",function(){
        $("#feedView").hide();
-       $("#editorView").show();
+       $("#editorView").html("").show();
 
        $("#editorView").append(loading);
        

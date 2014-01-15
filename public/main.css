@@ -71,6 +71,12 @@ body {
     box-sizing: border-box;
 }
 
+select.form-control{
+    display: inline;
+    width: auto;
+    min-width: 150px;
+}
+
 #monthName {
     display: inline;
 }
@@ -133,13 +139,17 @@ body {
     top: 40%;
 }
 
+.entryButtonWrapper{
+    padding-bottom: 15px;
+}
+
 #writingbox, #writingbox:focus {
     position: fixed;
     z-index: 0;
     margin: 0px 0px 0px 0px;
     /*width: calc(100% - 265px); */
     width: 1000px;
-    height: 50%;
+    height: 75%; /* TODO need to think of css calc */
     resize: none;
     box-shadow: none;
     color: #111;
@@ -149,4 +159,8 @@ body {
     padding: 0;
     border: none;
     overflow-y: scroll;
+}
+
+#toolbarWrapper {
+    display: none;
 }
