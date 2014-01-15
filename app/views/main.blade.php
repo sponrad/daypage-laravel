@@ -79,9 +79,6 @@
     <script src="/packages/bootstrap-3.0.3/js/bootstrap.min.js"></script>
 
     @yield('underbody')
-        
-
-    
   </body>
 
 </html>

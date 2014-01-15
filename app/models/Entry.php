@@ -6,5 +6,9 @@ class Entry extends Eloquent{
     public function user() {
         return $this->belongsTo('User', 'user_id');
     }
+
+    public function group(){
+        return $this->belongsTo('Group', 'group_id');
+    }
 }
 ?>

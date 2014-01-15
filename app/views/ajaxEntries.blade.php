@@ -32,3 +32,8 @@
   </div>
 
 @endforeach
+
+@foreach ($groupEntries as $entry)
+{{ $entry->user->firstname }} {{ $entry->user->lastname }} -  {{ $entry->group->name }} <br>
+  {{ $entry->content }} <br>
+@endforeach

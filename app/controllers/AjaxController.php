@@ -6,14 +6,26 @@ class AjaxController extends BaseController {
 
     if (Input::has("date")){
       $date = date('Y-m-d', strtotime( Input::get('date') )); 
-      $entries = Entry::where('user_id', '=', $user->id)->where('date', '=', $date)->get();      
+      $entries = Entry::where('user_id', '=', $user->id)->where('date', '=', $date)->get();
+
+      $groupEntries = array();
+      foreach($user->groups()->get() as $group)
+      {
+	foreach($group->entries()->where('date', '=', $date)->get() as $entry)
+	{
+	  array_push( $groupEntries, $entry );
+	}
+      }
+
     }
     else{
       $entries = Entry::where('user_id', '=', $user->id)->get();
+      $groupEntries = null;
     }
-   
+    
     return View::make('ajaxEntries')->with(
       array('entries' => $entries,
+	    'groupEntries' => $groupEntries,
 	    'date' => $date,
 	    ));
   }
