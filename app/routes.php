@@ -22,7 +22,9 @@ Route::post('ajax/loadeditor', 'AjaxController@postLoadEditor');
 
 Route::controller('users', 'UsersController');
 
-Route::get('/', function()
-{
-	return View::make('landing');
-});
+
+Route::get('/terms', function() { return View::make('terms'); });
+Route::get('/privacy', function() { return View::make('privacy'); });
+Route::get('/features', function() { return View::make('features'); });
+Route::get('/about', function() { return View::make('about'); });
+Route::get('/', function(){	return View::make('landing'); });

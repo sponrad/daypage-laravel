@@ -26,6 +26,10 @@ body {
     background-color: #f5f5f5;
 }
 
+.glyphicon {
+    margin-right: 10px;
+}
+
 .pagealert {
     color: green;
 }
@@ -141,6 +145,15 @@ select.form-control{
 
 .entryButtonWrapper{
     padding-bottom: 15px;
+}
+
+.changeMonth {
+    background: none;
+}
+
+#cancelComposeButton {
+    background: none;
+    border: 1px solid #eee;
 }
 
 #writingbox, #writingbox:focus {

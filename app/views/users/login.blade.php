@@ -9,4 +9,6 @@
   
   {{ Form::submit('Login', array('class'=>'btn btn-large btn-primary btn-block'))}}
   {{ Form::close() }}
+
+<img src="/img/pageoftheday.jpg" />
 @stop

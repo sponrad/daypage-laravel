@@ -18,4 +18,6 @@
 
   {{ Form::submit('Register', array('class'=>'btn btn-large btn-primary btn-block'))}}
   {{ Form::close() }}
+
+<img src="/img/usedaypage2.jpg" />
 @stop

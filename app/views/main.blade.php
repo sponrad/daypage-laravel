@@ -40,18 +40,18 @@
 		<li>{{ HTML::link('users/register', 'Register') }}</li>   
 		<li>{{ HTML::link('users/login', 'Login') }}</li>
 	      @else
-              <li class="dropdown">
-		<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->firstname.' '.Auth::user()->lastname }} <b class="caret"></b></a>
-		<ul class="dropdown-menu">
-                  <li>{{ HTML::link('users/home', 'Home') }}</li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-		  <li>{{ HTML::link('users/logout', 'Logout') }}</li>
-		</ul>
+		<li class="dropdown">
+		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->firstname.' '.Auth::user()->lastname }} <b class="caret"></b></a>
+		  <ul class="dropdown-menu">
+                    <li><a href="/users/home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="dropdown-header">Account</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="/users/settings"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
+		    <li><a href="/users/logout"><span class="glyphicon glyphicon-off"></span>Logout</a></li>
+		  </ul>
               </li>
 	      @endif
             </ul>
@@ -70,7 +70,13 @@
       <!-- FOOTER -->
       <footer>
 	<div class="container">
-	  <p>&copy;<?php echo date("Y"); ?> Daypage &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+	  <p>
+	    &copy;<?php echo date("Y"); ?> Daypage &middot; 
+	    <a href="/privacy">Privacy</a> &middot; 
+	    <a href="/terms">Terms</a> &middot; 
+	    <a href="/features">Features</a> &middot; 
+	    <a href="/about">About</a>
+	  </p>
 	</div>
       </footer>
 
