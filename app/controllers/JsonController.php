@@ -25,7 +25,7 @@ class JsonController extends BaseController {
     $entry->user()->associate($user);
     $entry->date = Input::get('date'); 
     $entry->content = Input::get('content');
-    $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100);    
+//    $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100);    
     $entry->save();
 
     return Response::json( array('response' => 1, 'entryId' => $entry->id) );
