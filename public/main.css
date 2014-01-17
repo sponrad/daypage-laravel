@@ -99,11 +99,11 @@ select.form-control{
 }
 
 .weekend {
-    background: #a1ffa3;
+    background: #d4d7da;
 }
 
 .today {
-    background: #ff9898;
+    background: #8db9df;
 }
 
 #composeButton::first-letter {
