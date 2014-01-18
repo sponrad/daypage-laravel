@@ -27,7 +27,7 @@
           <div class="navbar-collapse collapse">
 
             <ul class="nav navbar-nav">
-<!--              <li class="active"><a href="#">Home</a></li>
+	      <!--              <li class="active"><a href="#">Home</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li> -->
 	      @if(Session::has('message'))
@@ -52,7 +52,7 @@
                     <li><a href="/users/settings"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
 		    <li><a href="/users/logout"><span class="glyphicon glyphicon-off"></span>Logout</a></li>
 		  </ul>
-              </li>
+		</li>
 	      @endif
             </ul>
           </div><!--/.nav-collapse -->
@@ -67,18 +67,18 @@
     </div>
 
 
-      <!-- FOOTER -->
-      <footer>
-	<div class="container">
-	  <p>
-	    &copy;<?php echo date("Y"); ?> Daypage &middot; 
-	    <a href="/privacy">Privacy</a> &middot; 
-	    <a href="/terms">Terms</a> &middot; 
-	    <a href="/features">Features</a> &middot; 
-	    <a href="/about">About</a>
-	  </p>
-	</div>
-      </footer>
+    <!-- FOOTER -->
+    <footer>
+      <div class="container">
+	<p>
+	  &copy;<?php echo date("Y"); ?> Daypage &middot; 
+	  <a href="/privacy">Privacy</a> &middot; 
+	  <a href="/terms">Terms</a> &middot; 
+	  <a href="/features">Features</a> &middot; 
+	  <a href="/about">About</a>
+	</p>
+      </div>
+    </footer>
 
 
     <script src="/jquery1.10.2.js"></script>

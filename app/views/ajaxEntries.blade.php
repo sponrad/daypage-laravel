@@ -3,7 +3,7 @@
 @if (count( $entries ) == 0)
   <div style="text-align: center;">
     <br><br><br><br><br>
-    <h3>Nothing here, click <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span>New Entry</button> to add something</h3>
+    <h3>Nothing here, click <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span><u>N</u>ew Entry</button> to add something</h3>
   </div>
 @endif
 

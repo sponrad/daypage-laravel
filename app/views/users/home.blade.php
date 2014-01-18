@@ -4,7 +4,7 @@
   <div id="hDatepicker"></div>
   <div id="viewContainer">
     <div id="feedView">
-      <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span>New Entry</button>
+      <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span><u>N</u>ew Entry</button>
       <!-- <button id="filterButton">Filter</button> -->
       <div id="feed"></div>
     </div>
@@ -35,8 +35,29 @@
      return fDate;
    }
 
+   editorKeys = function(editor){
+     var $doc = $(editor.composer.doc);
+
+     var out  = (function(){
+       return function(msg){ console.log(msg)} ;
+     })();
+     
+     $doc.keydown(function(evt){
+       out("Down "+ evt.which);
+       if (evt.which == 27){
+	 console.log("esc");
+	 $("#cancelComposeButton").click();
+       }
+       if (evt.which == 81 && evt.ctrlKey){
+	 evt.preventDefault();
+	 console.log("save");
+       }
+     });
+   }
+
    $(document).ready( function(){
      selectedDate = new Date();
+     writingMode = false;
      loading = $(".homeLoading")
 
      $("#editorView").hide();
@@ -57,6 +78,7 @@
      $("#viewContainer").on("click", "#composeButton",function(){
        $("#feedView").hide();
        $("#editorView").html("").show();
+       writingMode = true;
 
        $("#editorView").append(loading);
        
@@ -68,12 +90,19 @@
          });
 
 	 $("#writingbox").focus();	 
+
+	 editor.on("load", function() {
+	   editorKeys(editor);
+	 });
+
        });
+
      });
 
      $("#viewContainer").on("click", "#filterButton, #cancelComposeButton",function(){
        $("#feedView").show();
        $("#editorView").hide();
+       writingMode = false;
      });
 
      function saveEntry( target ){
@@ -106,6 +135,7 @@
        e.preventDefault();
        $("#feedView").hide();
        $("#editorView").show();
+       writingMode = true;
 
        $("#editorView").html("").append(loading);
 
@@ -119,6 +149,12 @@
            stylesheets:  "/wysihtml5-stylesheet.css",
            parserRules:  wysihtml5ParserRules
          });
+
+	 $("#writingbox").focus();	 
+
+	 editor.on("load", function() {
+	   editorKeys(editor);
+	 });
        });       
      });
 
@@ -145,6 +181,17 @@
      $("#feed").html("").append(loading);
      date = new Date();
      $("#feed").load("/ajax/getentries?date=" + dpFormat(date));
+
+     $(document).keypress( function(e){
+       if (writingMode == false){
+	 switch(e.keyCode){
+	   case 110: //n
+	     e.preventDefault();
+	     $("#composeButton").click();	     
+	     break;
+	 }
+       }
+     });
 
    });
   </script>

@@ -54,5 +54,6 @@
   </div> <!-- toolbar -->
 </div> <!-- toolbarWrapper -->
 <div id="writingboxWrapper">
-  <textarea id="writingbox" name="writingbox" class="writingbox" placeholder="Start writing" spellcheck="false" entryId="{{ $id  }}">{{ $content }}</textarea>
+  <textarea id="writingbox" name="writingbox" class="writingbox" spellcheck="false" entryId="{{ $id  }}">{{ $content }}</textarea>
 </div>
+

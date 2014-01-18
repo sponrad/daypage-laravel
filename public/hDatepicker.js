@@ -21,14 +21,22 @@ weekday[5]="Friday";
 weekday[6]="Saturday";
 
 drawMonthRow = function(selectedDate, viewDate){
+
+    monthRow = "<div id='monthRow' >";
+
+    //display the year in its own h2
+    monthRow += "<h2 id='hDateYear'>" + viewDate.getFullYear() + "</h2>";
+
     //left arrow
-    monthRow = '<button type="button" class="btn changeMonth" data-inc=-1><span class="glyphicon glyphicon-chevron-left"></span></button>';
+    monthRow += '<button type="button" class="btn changeMonth" data-inc=-1><span class="glyphicon glyphicon-chevron-left"></span></button>';
     //right arrow
     monthRow += '<button type="button" class="btn changeMonth" data-inc=1><span class="glyphicon glyphicon-chevron-right"></span></button>';
 
     //display the currently viewed month
-    monthRow += "<h2 id='monthName'>" + monthNames[ viewDate.getMonth() ] + " " + viewDate.getFullYear() + "</h2><br>";
+    monthRow += "<h2 id='monthName'>" + monthNames[ viewDate.getMonth() ] + "</h2>";
 
+    
+    monthRow += "</div>";
 
 
     hDiv.append( monthRow);

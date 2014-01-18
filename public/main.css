@@ -85,6 +85,11 @@ select.form-control{
     display: inline;
 }
 
+#hDateYear{
+    float: right;
+    margin: 0 !important;
+}
+
 .dateButton{
     border: solid black 1px;
     margin: 3px -1px 3px -1px;
@@ -106,7 +111,7 @@ select.form-control{
     background: #8db9df;
 }
 
-#composeButton::first-letter {
+.underline {
     text-decoration: underline;
 }
 
