@@ -4,6 +4,9 @@
     </IfModule>
 
     RewriteEngine On
+    RewriteCond %{HTTP_HOST} !^www\. [NC]
+    RewriteCond %{HTTP_HOST} ^([a-z.]+)$ [NC]
+    RewriteRule ^/(.*)$ http://www.%1/$1 [R=301,L]
 
     # Redirect Trailing Slashes...
 	RewriteRule ^(.*)/$ /$1 [L,R=301]
