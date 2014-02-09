@@ -46,9 +46,13 @@
        //out("Down "+ evt.which);
        if (evt.which == 27){
 	 console.log("esc");
-	 //$("#wrap").focus();
-	 //$("#cancelComposeButton").click();
-	 $(".dateButton.selected").click();
+//	 $("#cancelComposeButton").click();
+
+	 $("#feedView").show();
+	 $("#editorView").hide();
+	 writingMode = false;
+
+	 $("#wrap").focus();
        }
        if (evt.which == 83 && evt.ctrlKey == true){
 	 evt.preventDefault();
@@ -74,6 +78,7 @@
          $("#editor").html("");
          $("#editorView").hide();
          $("#feedView").show();
+	 $("#wrap").focus();
        }
      }
 		 );
