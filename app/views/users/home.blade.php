@@ -43,14 +43,17 @@
      })();
      
      $doc.keydown(function(evt){
-       out("Down "+ evt.which);
+       //out("Down "+ evt.which);
        if (evt.which == 27){
 	 console.log("esc");
-	 $("#cancelComposeButton").click();
+	 //$("#wrap").focus();
+	 //$("#cancelComposeButton").click();
+	 $(".dateButton.selected").click();
        }
-       if (evt.which == 81 && evt.ctrlKey){
+       if (evt.which == 83 && evt.ctrlKey == true){
 	 evt.preventDefault();
 	 console.log("save");
+	 $("#saveButton").click();
        }
      });
    }
@@ -99,10 +102,12 @@
 
      });
 
-     $("#viewContainer").on("click", "#filterButton, #cancelComposeButton",function(){
+     $("#viewContainer").on("click", "#filterButton, #cancelComposeButton",function(e){
        $("#feedView").show();
        $("#editorView").hide();
        writingMode = false;
+       //TODO focus/select some element to make shortcuts work again. redraw entries?
+       $("#wrap").focus();
      });
 
      function saveEntry( target ){
@@ -189,6 +194,25 @@
 	     e.preventDefault();
 	     $("#composeButton").click();	     
 	     break;
+	   case 49: //1
+	     $("a.edit#1").click();
+	     break;
+	   case 50: //2
+	     $("a.edit#2").click();
+	     break;
+	   case 51: //3
+	     $("a.edit#3").click();
+	     break;
+	   case 52: //4
+	     $("a.edit#4").click();
+	     break;
+	   case 53: //5
+	     $("a.edit#5").click();
+	     break;
+	   case 54: //6
+	     $("a.edit#6").click();
+	     break;
+	   
 	 }
        }
      });

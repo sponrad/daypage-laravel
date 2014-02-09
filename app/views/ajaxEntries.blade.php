@@ -7,7 +7,7 @@
   </div>
 @endif
 
-@foreach ($entries as $entry)
+@foreach ($entries as $key => $entry)
 
   <?php
 
@@ -18,19 +18,17 @@
   $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
 
   ?>
-
   <div id="{{ $entry->id }}" class="entryDiv">
     <p>
       <img src="{{ $grav_url }}" height=40 width=40 />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
-	<a href="" class="edit" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil"></span>Edit</a>
+	<a href="" class="edit" id={{ $key+1 }} entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil"></span>Edit</a> <small>{{ $key+1 }}</small>
 	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span>Delete</a>
       @endif
     </p>
     <p>{{ $entry->content }}</p>
   </div>
-
 @endforeach
 
 @foreach ($groupEntries as $entry)
