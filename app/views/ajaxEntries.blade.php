@@ -23,7 +23,7 @@
       <img src="{{ $grav_url }}" height=40 width=40 />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
-	<a href="" class="edit" id={{ $key+1 }} entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil"></span>Edit</a> <small>{{ $key+1 }}</small>
+          <a href="" class="edit" @if( $key < 6 )id={{ $key+1 }}@endif entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil" entryId="{{ $entry->id }}" }}></span></a>@if( $key < 6)<small>{{ $key+1 }}</small>@endif
 	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span>Delete</a>
       @endif
     </p>

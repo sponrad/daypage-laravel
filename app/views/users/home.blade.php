@@ -28,6 +28,7 @@
   <script src="/wysihtml5-0.0advanced.js"></script>
   <script src="/wysihtml5-0.3.0.js"></script>
   <script src="/notify.min.js"></script>
+  <script src="/keymaster.js"></script>
   <script>
 
    dpFormat = function(date){
@@ -42,24 +43,26 @@
        return function(msg){ console.log(msg)} ;
      })();
      
-     $doc.keydown(function(evt){
-       //out("Down "+ evt.which);
-       if (evt.which == 27){
-	 console.log("esc");
-//	 $("#cancelComposeButton").click();
+     if (writingMode == true){
 
-	 $("#feedView").show();
-	 $("#editorView").hide();
-	 writingMode = false;
+       $doc.keydown(function(evt){
+	 //out("Down "+ evt.which);
+	 if (evt.which == 27){
+	   console.log("esc");
+	   //	 $("#cancelComposeButton").click();
 
-	 $("#wrap").focus();
-       }
-       if (evt.which == 83 && evt.ctrlKey == true){
-	 evt.preventDefault();
-	 console.log("save");
-	 $("#saveButton").click();
-       }
-     });
+	   $("#feedView").show();
+	   $("#editorView").hide();
+	   writingMode = false;
+	   $("body").focus();
+	 }
+	 if (evt.which == 83 && evt.ctrlKey == true){
+	   evt.preventDefault();
+	   console.log("save");
+	   $("#saveButton").click();
+	 }
+       });
+     }
    }
 
    $(document).ready( function(){
@@ -192,15 +195,45 @@
      date = new Date();
      $("#feed").load("/ajax/getentries?date=" + dpFormat(date));
 
+     key('n', function(e){
+       e.preventDefault();
+       $("#composeButton").click();	     
+       });
+
+     key('1', function(e){
+       e.preventDefault();
+       $("a.edit#1").click();
+     });
+     key('2', function(e){
+       e.preventDefault();
+       $("a.edit#2").click();
+     });
+     key('3', function(e){
+       e.preventDefault();
+       $("a.edit#3").click();
+     });
+     key('4', function(e){
+       e.preventDefault();
+       $("a.edit#4").click();
+     });
+     key('5', function(e){
+       e.preventDefault();
+       $("a.edit#5").click();
+     });
+     key('6', function(e){
+       e.preventDefault();
+       $("a.edit#6").click();
+     });
+
      $(document).keypress( function(e){
        if (writingMode == false){
 	 switch(e.keyCode){
-	   case 110: //n
+/*	   case 110: //n
 	     e.preventDefault();
 	     $("#composeButton").click();	     
-	     break;
+	     break; 
 	   case 49: //1
-	     $("a.edit#1").click();
+	     $("a.edit#1").click();	    
 	     break;
 	   case 50: //2
 	     $("a.edit#2").click();
@@ -216,8 +249,7 @@
 	     break;
 	   case 54: //6
 	     $("a.edit#6").click();
-	     break;
-	   
+	     break; */
 	 }
        }
      });
