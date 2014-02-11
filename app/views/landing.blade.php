@@ -184,7 +184,7 @@
         <div class="col-lg-4">
           <img class="img-circle" src="/img/private.png" alt="Generic placeholder image">
           <h2>Private</h2>
-          <p>Daypage keeps your daily notes and musings exactly that, yours. We use government grade security to protect what you have written. Of course sharing is allowed too.</p>
+          <p>Daypage keeps your daily notes yours. We use government grade security to protect what you have written. Of course sharing is allowed too.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
