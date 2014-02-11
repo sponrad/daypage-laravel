@@ -46,15 +46,16 @@
      if (writingMode == true){
 
        $doc.keydown(function(evt){
-	 //out("Down "+ evt.which);
+//	 out("Down "+ evt.which);
+//	 if (evt.which == 75 && evt.ctrlKey == true){
 	 if (evt.which == 27){
-	   console.log("esc");
-	   //	 $("#cancelComposeButton").click();
-
+	   evt.preventDefault();
+	   $("#cancelComposeButton").click();
+/*
 	   $("#feedView").show();
 	   $("#editorView").hide();
 	   writingMode = false;
-	   $("body").focus();
+	   $("#wrap").focus(); */
 	 }
 	 if (evt.which == 83 && evt.ctrlKey == true){
 	   evt.preventDefault();
@@ -100,7 +101,7 @@
            parserRules:  wysihtml5ParserRules
          });
 
-	 $("#writingbox").focus();	 
+	 $("#writingbox").focus(); 
 
 	 editor.on("load", function() {
 	   editorKeys(editor);
@@ -114,8 +115,8 @@
        $("#feedView").show();
        $("#editorView").hide();
        writingMode = false;
-       //TODO focus/select some element to make shortcuts work again. redraw entries?
-       $("#wrap").focus();
+       //TODO redraw entries?
+       $("#editorView").html("");
      });
 
      function saveEntry( target ){
