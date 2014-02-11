@@ -170,21 +170,21 @@
       <!-- Three columns of text below the carousel -->
       <div class="row">
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+          <img class="img-circle" src="/img/write.png" alt="Generic placeholder image">
           <h2>Write</h2>
           <p>Writing on Daypage helps you stay more organized and stress-free. Click a day to bring up a clean blank page and let it all out.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" src="" alt="Generic placeholder image">
+          <img class="img-circle" src="/img/new_entry.png" alt="Generic placeholder image">
           <h2>Remember</h2>
           <p>Can you remember what you did two Tuesdays ago? Start remembering what you have accomplished every day. Daypage makes it easy to look back at that Tuesday and remember what was going on.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-          <img class="img-circle" data-src="holder.js/140x140" alt="Generic placeholder image">
+          <img class="img-circle" src="/img/private.png" alt="Generic placeholder image">
           <h2>Private</h2>
-          <p>Daypage keeps your daily notes and musings exactly that, yours. User privacy is paramount. We use government grade security to protect what you have written. Of course if you want to share your stuff that is allowed too.</p>
+          <p>Daypage keeps your daily notes and musings exactly that, yours. We use government grade security to protect what you have written. Of course sharing is allowed too.</p>
           <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
