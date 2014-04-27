@@ -2,10 +2,7 @@
   Conrad Frame*/
 
 daysInMonth = function(year, month) {
-    var s = new Date(year, month, 1),
-    e = new Date(year, month + 1, 1),
-    days = parseInt((e - s) / (1000 * 60 * 60 * 24), 10);
-    return days;
+    return new Date(year, month, 0).getDate();
 };
 
 var monthNames = [ "January", "February", "March", "April", "May", "June",
