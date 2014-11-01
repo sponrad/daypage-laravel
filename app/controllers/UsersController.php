@@ -36,6 +36,10 @@ class UsersController extends BaseController {
         return View::make('users.home');
     }
 
+    public function getSettings(){
+        return View::make('users.settings');
+    }
+
     public function postCreate() {
         $validator = Validator::make(Input::all(), User::$rules);
  
