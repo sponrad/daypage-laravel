@@ -40,19 +40,9 @@
 		<li>{{ HTML::link('users/register', 'Register') }}</li>   
 		<li>{{ HTML::link('users/login', 'Login') }}</li>
 	      @else
-		<li class="dropdown">
-		  <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->firstname.' '.Auth::user()->lastname }} <b class="caret"></b></a>
-		  <ul class="dropdown-menu">
-                    <li><a href="/users/home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li class="dropdown-header">Account</li>
-                    <li><a href="#">Separated link</a></li>
-                    <li><a href="/users/settings"><span class="glyphicon glyphicon-cog"></span>Settings</a></li>
-		    <li><a href="/users/logout"><span class="glyphicon glyphicon-off"></span>Logout</a></li>
-		  </ul>
-		</li>
+                <li><a href="/users/home"><span class="glyphicon glyphicon-home"></span>{{ Auth::user()->firstname.' '.Auth::user()->lastname }}</a></li>
+                <li title="Settings"><a href="/users/settings"><span class="glyphicon glyphicon-cog"></span></a></li>
+		<li title="Logout"><a href="/users/logout"><span class="glyphicon glyphicon-off"></span></a></li>
 	      @endif
             </ul>
           </div><!--/.nav-collapse -->
