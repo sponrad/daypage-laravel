@@ -1,12 +1,6 @@
 <div class="entryButtonWrapper">
   <button type="button" class="btn" id="cancelComposeButton">Close</button>
   <button type="button" class="btn btn-primary"  id="saveButton"><span class="glyphicon glyphicon-ok"></span>Save</button>
-  <select class="form-control">
-    <option>Personal</option>
-    @foreach(Auth::user()->groups as $group)
-      <option>{{ $group->name }}</option>
-    @endforeach
-  </select>
 </div>
 
 

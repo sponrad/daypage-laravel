@@ -5,7 +5,6 @@
   <div id="viewContainer">
     <div id="feedView">
       <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span><u>N</u>ew Entry</button>
-      <!-- <button id="filterButton">Filter</button> -->
       <div id="feed"></div>
     </div>
 
@@ -84,8 +83,7 @@
          $("#feedView").show();
 	 $("#wrap").focus();
        }
-     }
-		 );
+     });
      
      $("#viewContainer").on("click", "#composeButton",function(){
        $("#feedView").hide();
@@ -199,8 +197,7 @@
      key('n', function(e){
        e.preventDefault();
        $("#composeButton").click();	     
-       });
-
+     });
      key('1', function(e){
        e.preventDefault();
        $("a.edit#1").click();
@@ -225,33 +222,30 @@
        e.preventDefault();
        $("a.edit#6").click();
      });
-
-     $(document).keypress( function(e){
-       if (writingMode == false){
-	 switch(e.keyCode){
-/*	   case 110: //n
-	     e.preventDefault();
-	     $("#composeButton").click();	     
-	     break; 
-	   case 49: //1
-	     $("a.edit#1").click();	    
-	     break;
-	   case 50: //2
-	     $("a.edit#2").click();
-	     break;
-	   case 51: //3
-	     $("a.edit#3").click();
-	     break;
-	   case 52: //4
-	     $("a.edit#4").click();
-	     break;
-	   case 53: //5
-	     $("a.edit#5").click();
-	     break;
-	   case 54: //6
-	     $("a.edit#6").click();
-	     break; */
-	 }
+     key('shift+right', function(e){
+       e.preventDefault();
+       console.log("next day");
+       selected_div = $("#hDatepicker > button.dateButton.weekday.today.selected");
+       if (selected_div.is(':last-child')){
+	 //go to next month first day
+	 $("#monthRow > button:nth-child(3)").click();
+	 $("#hDatepicker > button:first-child").click();	 
+       }
+       else {
+	 selected_div.next().click();
+       }
+     });
+     key('shift+left', function(e){
+       e.preventDefault();
+       console.log("previous day");
+       selected_div = $("#hDatepicker > button.dateButton.weekday.today.selected");
+       if (selected_div.is(':first-child')){
+	 //go to previous month last day
+	 $("#monthRow > button:nth-child(2)").click();
+	 $("#hDatepicker > button:last_child").click();
+       }
+       else {
+	 selected_day.next().click();
        }
      });
 
