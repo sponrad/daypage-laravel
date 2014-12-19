@@ -182,3 +182,7 @@ select.form-control{
 #toolbarWrapper {
     display: none;
 }
+
+.entry-content {
+    font-size: 1.2em;
+}

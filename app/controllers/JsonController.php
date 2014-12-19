@@ -21,14 +21,19 @@ class JsonController extends BaseController {
     }
     else{
       $entry = new Entry;
+      $entry->date = Input::get('date'); 
     }
-    $entry->user()->associate($user);
-    $entry->date = Input::get('date'); 
+    $entry->user()->associate($user);    
     $entry->content = Input::get('content');
 //    $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100);    
     $entry->save();
 
-    return Response::json( array('response' => 1, 'entryId' => $entry->id) );
+    if (Input::has("jeditable")){
+            return $entry->content;
+        }
+    else{
+        return Response::json( array('response' => 1, 'entryId' => $entry->id) );
+    }
   }
 
   public function postDeleteEntry(){
@@ -39,7 +44,7 @@ class JsonController extends BaseController {
       return Response::json( array('response' => 1) );      
     }
     else {
-      return Response::json( array('response' => 0, 'entryId' => $entry->id) );
+        return Response::json( array('response' => 0, 'entryId' => $entry->id) );
     }
   }
 

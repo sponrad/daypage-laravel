@@ -26,9 +26,14 @@
   <script src="/hDatepicker.js"></script>
   <script src="/wysihtml5-0.0advanced.js"></script>
   <script src="/wysihtml5-0.3.0.js"></script>
+  <script src="/jquery.autogrow.js"></script>
+  <script src="/jquery.jeditable.js"></script>
+  <script src="/jquery.jeditable.autogrow.js"></script>
   <script src="/notify.min.js"></script>
   <script src="/keymaster.js"></script>
   <script>
+  
+   $.browser={ msie: ( navigator.appName == 'Microsoft Internet Explorer') ? true : false};
 
    dpFormat = function(date){
      fDate = "" + date.getFullYear() + ("0" + (date.getMonth() + 1)).slice(-2) + ("0" + date.getDate()).slice(-2);
@@ -45,16 +50,9 @@
      if (writingMode == true){
 
        $doc.keydown(function(evt){
-//	 out("Down "+ evt.which);
-//	 if (evt.which == 75 && evt.ctrlKey == true){
 	 if (evt.which == 27){
 	   evt.preventDefault();
 	   $("#cancelComposeButton").click();
-/*
-	   $("#feedView").show();
-	   $("#editorView").hide();
-	   writingMode = false;
-	   $("#wrap").focus(); */
 	 }
 	 if (evt.which == 83 && evt.ctrlKey == true){
 	   evt.preventDefault();

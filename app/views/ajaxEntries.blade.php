@@ -23,11 +23,13 @@
       <img src="{{ $grav_url }}" height=40 width=40 />
       {{ $entry->user->firstname }} {{ $entry->user->lastname }}
       @if( $entry->user_id == Auth::user()->id )
-          <a href="" class="edit" @if( $key < 6 )id={{ $key+1 }}@endif entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil" entryId="{{ $entry->id }}" }}></span></a>@if( $key < 6)<small>{{ $key+1 }}</small>@endif
-	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span>Delete</a>
+          <a href="" class="edit" @if( $key < 6 )id={{ $key+1 }}@endif entryId="{{ $entry->id }}" }}>
+	    <span class="glyphicon glyphicon-pencil" entryId="{{ $entry->id }}" }}></span>
+	  </a>@if( $key < 6)<small>{{ $key+1 }}</small>@endif
+	  <a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span>Delete</a>
       @endif
     </p>
-    <p>{{ $entry->content }}</p>
+    <p class="entry-content autogrow" id="{{ $entry->id }}">{{ $entry->content }}</p>
   </div>
 @endforeach
 
@@ -35,3 +37,25 @@
   {{ $entry->user->firstname }} {{ $entry->user->lastname }} -  {{ $entry->group->name }} <br>
   {{ $entry->content }}
 @endforeach
+
+
+<script>
+ $(document).ready( function(){
+
+   $(".autogrow").editable("/json/saveentry", { 
+//     indicator : "<img src='img/indicator.gif'>",
+     type      : "autogrow",
+     submit    : 'Save',
+     name      : 'content',
+     cancel    : 'Cancel',
+     tooltip   : "Click to edit...",
+     onblur    : "ignore",
+     submitdata : {jeditable: "yes"},
+     autogrow : {
+       lineHeight : 22,
+       minHeight  : 35
+     }
+   });
+
+ });
+</script>
