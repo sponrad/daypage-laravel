@@ -1,188 +1,203 @@
 html {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 /* Sticky footer styles
-   -------------------------------------------------- */
+-------------------------------------------------- */
 
 html,
 body {
-    height: 100%;
-/* The html and body elements cannot have any padding or margin. */
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
 }
 
 /* Wrapper for page content to push down footer */
 #wrap {
-    min-height: 100%;
-    height: auto;
-    /* Negative indent footer by its height */
-    margin: 0 auto -30px;
-    /* Pad bottom by footer height */
-    padding: 0 0 30px;
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -30px;
+  /* Pad bottom by footer height */
+  padding: 0 0 30px;
 }
 
 /* Set the fixed height of the footer here */
 #footer {
-    background-color: #f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .glyphicon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .pagealert {
-    color: green;
+  color: green;
 }
 
 /* Custom page CSS
-   -------------------------------------------------- */
+-------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
 .container {
-    width: auto;
-    max-width: 1025px;
-    padding: 0 15px;
+  width: auto;
+  max-width: 1025px;
+  padding: 0 15px;
 }
 .container .text-muted {
-    margin: 20px 0;
+  margin: 20px 0;
 }
 
 /* end sticky footer */
 
 .navbar {
-    margin-bottom: 0px;
-    background: none;
-    border: none;
+  margin-bottom: 0px;
+  background: none;
+  border: none;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
 .form-signup, .form-signin {
-    width: 400px;
-    margin: 0 auto;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .input-block-level {
-    position: relative;
-    font-size: 16px;
-    height: auto;
-    padding: 10px;
-    width: 100%;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 select.form-control{
-    display: inline;
-    width: auto;
-    min-width: 150px;
+  display: inline;
+  width: auto;
+  min-width: 150px;
 }
 
 #monthName {
-    display: inline;
+  display: inline;
 }
 
 #hDateYear{
-    float: right;
-    margin: 0 !important;
+  float: right;
+  margin: 0 !important;
 }
 
 .dateButton{
-    border: solid black 1px;
-    margin: 3px -1px 3px -1px;
-    background: white;
-    width: 34px;
-    
+  border: solid black 1px;
+  margin: 3px -1px 3px -1px;
+  background: white;
+  width: 34px;
+  
 }
 
 .selected {
-    border: solid black 4px;
-    margin: 0px;
+  border: solid black 4px;
+  margin: 0px;
 }
 
 .weekend {
-    background: #dcdcdc;
+  background: #dcdcdc;
 }
 
 .today {
-    background: #8db9df;
+  background: #8db9df;
 }
 
 .underline {
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.edit{
 }
 
 .delete{
-    float: right;
-    visibility: hidden;
-    color: red;
+  color: red;
 }
 
 .entryDiv{
-    padding: 10px;
-    border-radius: 10px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .entryDiv:hover{
-    background: #f1f9ff;
+  /*    background: #f4f9fc; */
 }
 
-.entryDiv:hover .delete{
-    visibility: visible;    
-    transition: all 1s;
+.entryDiv:hover .edit, .entryDiv:hover .delete{
+  visibility: visible;    
+  transition: all 1s;
 }
 
 .entryDiv img {
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .homeLoading {
-    background: url('ajax-loader.gif') no-repeat;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    left: 50%;
-    top: 40%;
+  background: url('ajax-loader.gif') no-repeat;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 50%;
+  top: 40%;
 }
 
 .entryButtonWrapper{
-    padding-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 .changeMonth {
-    background: none;
+  background: none;
 }
 
 #cancelComposeButton {
-    background: none;
-    border: 1px solid #eee;
+  background: none;
+  border: 1px solid #eee;
 }
 
 #writingbox, #writingbox:focus {
-    position: fixed;
-    z-index: 0;
-    margin: 0px 0px 0px 0px;
-    /*width: calc(100% - 265px); */
-    width: 1000px;
-    height: 75%; /* TODO need to think of css calc */
-    resize: none;
-    box-shadow: none;
-    color: #111;
-    outline: none;
-    font-size: 20px;
-    line-height: 1.6em;
-    padding: 0;
-    border: none;
-    overflow-y: scroll;
+  position: fixed;
+  z-index: 0;
+  margin: 0px 0px 0px 0px;
+  /*width: calc(100% - 265px); */
+  width: 1000px;
+  height: 75%; /* TODO need to think of css calc */
+  resize: none;
+  box-shadow: none;
+  color: #111;
+  outline: none;
+  font-size: 20px;
+  line-height: 1.6em;
+  padding: 0;
+  border: none;
+  overflow-y: scroll;
 }
 
 #toolbarWrapper {
-    display: none;
+  display: none;
 }
 
-.entry-content {
-    font-size: 1.2em;
+.entry-content, .entry-content:focus {
+  font-size: 1.6em;
+  outline:  0px solid transparent;
+  padding: 3px;
+  border: none;
+  line-height: 1.6em;
+}
+
+.entry-content.editing {
+  padding: 2px;
+  border: solid 1px #ccc;
+}
+
+.entry-content.editing:focus {
+  padding: 2px;
+  border: solid 1px #8db9df;
 }

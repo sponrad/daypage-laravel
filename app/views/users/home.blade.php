@@ -26,9 +26,6 @@
   <script src="/hDatepicker.js"></script>
   <script src="/wysihtml5-0.0advanced.js"></script>
   <script src="/wysihtml5-0.3.0.js"></script>
-  <script src="/jquery.autogrow.js"></script>
-  <script src="/jquery.jeditable.js"></script>
-  <script src="/jquery.jeditable.autogrow.js"></script>
   <script src="/notify.min.js"></script>
   <script src="/keymaster.js"></script>
   <script>
@@ -192,34 +189,6 @@
      date = new Date();
      $("#feed").load("/ajax/getentries?date=" + dpFormat(date));
 
-     key('n', function(e){
-       e.preventDefault();
-       $("#composeButton").click();	     
-     });
-     key('1', function(e){
-       e.preventDefault();
-       $("a.edit#1").click();
-     });
-     key('2', function(e){
-       e.preventDefault();
-       $("a.edit#2").click();
-     });
-     key('3', function(e){
-       e.preventDefault();
-       $("a.edit#3").click();
-     });
-     key('4', function(e){
-       e.preventDefault();
-       $("a.edit#4").click();
-     });
-     key('5', function(e){
-       e.preventDefault();
-       $("a.edit#5").click();
-     });
-     key('6', function(e){
-       e.preventDefault();
-       $("a.edit#6").click();
-     });
      key('shift+right', function(e){
        e.preventDefault();
        console.log("next day");
