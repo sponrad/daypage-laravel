@@ -4,7 +4,6 @@
   <div id="hDatepicker"></div>
   <div id="viewContainer">
     <div id="feedView">
-      <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span><u>N</u>ew Entry</button>
       <div id="feed"></div>
     </div>
 
@@ -132,6 +131,15 @@
            }
          }, 'json' );
      }
+
+     key('n', function(e){
+       var focused = $(':focus');
+       if (!focused.hasClass("entry-content")){
+	 e.preventDefault();
+	 $("#new-entry").click();
+	 $("#new-entry").focus();
+       }
+     });
 
 
      $("#viewContainer").on("click", "#saveButton",function(e){

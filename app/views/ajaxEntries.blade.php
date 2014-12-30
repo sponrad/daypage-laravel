@@ -24,7 +24,7 @@
 @endforeach
 
 <div class="entryDiv">
-  <div class="entry-content" contenteditable=true id="new-entry" spellcheck=false data-ph="+"></div>
+  <div class="entry-content" contenteditable=true id="new-entry" spellcheck=false data-ph="+" title="Click or type 'n' to create a new entry"></div>
   <style>
    [contentEditable=true]:empty:not(:focus):before{
      content:attr(data-ph)
