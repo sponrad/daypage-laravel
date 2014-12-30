@@ -140,6 +140,11 @@ select.form-control{
   border-radius: 5px;
 }
 
+.entryDiv br{
+  display: block;
+  margin: 10px 0;
+}
+
 .homeLoading {
   background: url('ajax-loader.gif') no-repeat;
   width: 100%;

@@ -18,6 +18,7 @@
   $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( $email ) ) ) . "?d=" . urlencode( $default ) . "&s=" . $size;
 
   ?>
+
   <div id="{{ $entry->id }}" class="entryDiv">
     <div>
       @if( $entry->user_id == Auth::user()->id )
@@ -25,6 +26,7 @@
 	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span></a>
       @endif
     </div>
+
     <div class="entry-content" contenteditable=true id="{{ $entry->id }}" spellcheck=false>{{ $entry->content }}</div>
   </div>
 @endforeach
@@ -37,7 +39,35 @@
 
 <script>
  $(document).ready( function(){
- 
+
+   key('ctrl+s', function(e){
+     e.preventDefault();
+     var focused = $(':focus');
+     if (focused.hasClass("entry-content")){
+       console.log("save fired");
+       console.log(focused);
+       entry = focused;
+       
+       var id = entry.attr("id");
+       var content = $(entry).html();
+       var date = dpFormat(selectedDate);
+       var datatosend = {id: id, content: content, date: date};
+       $.post("/json/saveentry", datatosend, 
+              function(data){
+           if (data.response == "1"){
+	     entry.next().remove();
+	     entry.next().remove();
+	     entry.removeClass("editing");
+           }
+           else{
+             console.log("unsuccessful save");
+             $.notify("Error");
+           }
+	 }, 'json' );
+       focused.blur();
+     }
+   });
+
    $("#feed").on("click", ".entry-content", function(e){
      if ( $(e.target).attr('id') != undefined ){
        entry = $(e.target);
@@ -45,8 +75,6 @@
      else{
        entry = $(e.target).parents("div.entry-content");
      }
-
-     console.log(entry);
 
      if ( !entry.hasClass("editing") ){
        entry.after("<button class='entry-cancel-button'>Cancel</button><button class='entry-save-button'>Save</button>");
@@ -91,3 +119,4 @@
 
  });
 </script>
+

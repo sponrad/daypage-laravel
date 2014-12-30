@@ -62,7 +62,7 @@
 
    $(document).ready( function(){
      selectedDate = new Date();
-     writingMode = false;
+     writingMode = false;     
      loading = $(".homeLoading")
 
      $("#editorView").hide();
@@ -188,33 +188,6 @@
      $("#feed").html("").append(loading);
      date = new Date();
      $("#feed").load("/ajax/getentries?date=" + dpFormat(date));
-
-     key('shift+right', function(e){
-       e.preventDefault();
-       console.log("next day");
-       selected_div = $("#hDatepicker > button.dateButton.weekday.today.selected");
-       if (selected_div.is(':last-child')){
-	 //go to next month first day
-	 $("#monthRow > button:nth-child(3)").click();
-	 $("#hDatepicker > button:first-child").click();	 
-       }
-       else {
-	 selected_div.next().click();
-       }
-     });
-     key('shift+left', function(e){
-       e.preventDefault();
-       console.log("previous day");
-       selected_div = $("#hDatepicker > button.dateButton.weekday.today.selected");
-       if (selected_div.is(':first-child')){
-	 //go to previous month last day
-	 $("#monthRow > button:nth-child(2)").click();
-	 $("#hDatepicker > button:last_child").click();
-       }
-       else {
-	 selected_day.next().click();
-       }
-     });
 
    });
   </script>
