@@ -202,7 +202,14 @@ select.form-control{
   border: solid 1px #ccc;
 }
 
-.entry-content.editing:focus {
+#new-entry {
+  color: #ccc;
+  text-align: center;
+}
+
+.entry-content.editing:focus, #new-entry:focus {
   padding: 2px;
   border: solid 1px #8db9df;
+  color: #333;
+  text-align: left;
 }

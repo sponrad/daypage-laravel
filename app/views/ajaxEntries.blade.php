@@ -1,12 +1,4 @@
-<!-- {{ $date }} -->
-
-@if (count( $entries ) == 0)
-  <div style="text-align: center;">
-    <br><br><br><br><br>
-    <h3>Nothing here, click <button type="button" class="btn btn-primary" id="composeButton"><span class="glyphicon glyphicon-plus"></span><u>N</u>ew Entry</button> to add something</h3>
-  </div>
-@endif
-
+<br>
 @foreach ($entries as $key => $entry)
 
   <?php
@@ -31,6 +23,18 @@
   </div>
 @endforeach
 
+<div class="entryDiv">
+  <div class="entry-content" contenteditable=true id="new-entry" spellcheck=false data-ph="+"></div>
+  <style>
+   [contentEditable=true]:empty:not(:focus):before{
+     content:attr(data-ph)
+   }
+  </style>
+</div>
+
+
+  </div>
+
 @foreach ($groupEntries as $entry)
   {{ $entry->user->firstname }} {{ $entry->user->lastname }} -  {{ $entry->group->name }} <br>
   {{ $entry->content }}
@@ -47,23 +51,48 @@
        console.log("save fired");
        console.log(focused);
        entry = focused;
+
+       if (entry.attr("id") != "new-entry"){
+	 var id = entry.attr("id");
+	 var content = $(entry).html();
+	 var date = dpFormat(selectedDate);
+	 var datatosend = {id: id, content: content, date: date};
+
+	 $.post("/json/saveentry", datatosend, 
+		function(data){
+             if (data.response == "1"){
+	       entry.next().remove();
+	       entry.next().remove();
+	       entry.removeClass("editing");
+             }
+             else{
+               console.log("unsuccessful save");
+               $.notify("Error");
+             }
+	   }, 'json' );
+
+       }
+       else{
+
+	 var content = $(entry).html();
+	 var date = dpFormat(selectedDate);
+	 var datatosend = {id: id, content: content, date: date};
+
+	 $.post("/json/saveentry", datatosend, 
+		function(data){
+             if (data.response == "1"){
+	       entry.next().remove();
+	       entry.next().remove();
+	       entry.removeClass("editing");
+	       entry.attr("id", data.entryId);
+             }
+             else{
+               console.log("unsuccessful save");
+               $.notify("Error");
+             }
+	   }, 'json' );
+       }
        
-       var id = entry.attr("id");
-       var content = $(entry).html();
-       var date = dpFormat(selectedDate);
-       var datatosend = {id: id, content: content, date: date};
-       $.post("/json/saveentry", datatosend, 
-              function(data){
-           if (data.response == "1"){
-	     entry.next().remove();
-	     entry.next().remove();
-	     entry.removeClass("editing");
-           }
-           else{
-             console.log("unsuccessful save");
-             $.notify("Error");
-           }
-	 }, 'json' );
        focused.blur();
      }
    });
@@ -94,26 +123,53 @@
      entry.next().remove();
    });
 
-   $("#feed").on("click", ".entry-save-button", function(e){
-     e.stopPropagation();
+   $("#feed").off(".entry-save-button").on("click", ".entry-save-button", function(e){
+     e.stopImmediatePropagation();
      entry = $(this).prev().prev();
 
-     var id = entry.attr("id");
-     var content = $(entry).html();
-     var date = dpFormat(selectedDate);
-     var datatosend = {id: id, content: content, date: date};
-     $.post("/json/saveentry", datatosend, 
-            function(data){
-         if (data.response == "1"){
-	   entry.next().remove();
-	   entry.next().remove();
-	   entry.removeClass("editing");
-         }
-         else{
-           console.log("unsuccessful save");
-           $.notify("Error");
-         }
-       }, 'json' );
+     var datatosend = [];
+
+     if (entry.attr("id") != "new-entry"){
+       var id = entry.attr("id");
+       var content = $(entry).html();
+       var date = dpFormat(selectedDate);
+       var datatosend = {id: id, content: content, date: date};
+
+       $.post("/json/saveentry", datatosend, 
+              function(data){
+           if (data.response == "1"){
+	     entry.next().remove();
+	     entry.next().remove();
+	     entry.removeClass("editing");
+           }
+           else{
+             console.log("unsuccessful save");
+             $.notify("Error");
+           }
+	 }, 'json' );
+
+     }
+     else{
+
+       var content = $(entry).html();
+       var date = dpFormat(selectedDate);
+       var datatosend = {id: id, content: content, date: date};
+
+       $.post("/json/saveentry", datatosend, 
+              function(data){
+           if (data.response == "1"){
+	     entry.next().remove();
+	     entry.next().remove();
+	     entry.removeClass("editing");
+	     entry.attr("id", data.entryId);
+           }
+           else{
+             console.log("unsuccessful save");
+             $.notify("Error");
+           }
+	 }, 'json' );
+     }
+
     
    });
 
