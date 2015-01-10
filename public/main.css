@@ -195,6 +195,7 @@ select.form-control{
   padding: 3px;
   border: none;
   line-height: 1.6em;
+  margin-bottom: 5px;
 }
 
 .entry-content.editing {
@@ -203,7 +204,7 @@ select.form-control{
 }
 
 #new-entry {
-  color: #bbb;
+  color: #333;
   text-align: center;
 }
 

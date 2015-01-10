@@ -14,8 +14,8 @@
   <div id="{{ $entry->id }}" class="entryDiv">
     <div>
       @if( $entry->user_id == Auth::user()->id )
-        <a href="" class="edit" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil" entryId="{{ $entry->id }}" }}></span></a>
-	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span></a>
+        <!-- <a href="" class="edit" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-pencil" entryId="{{ $entry->id }}" }}></span></a>
+	<a href="" class="delete" entryId="{{ $entry->id }}" }}><span class="glyphicon glyphicon-trash"></span></a> -->
       @endif
     </div>
 
@@ -61,9 +61,13 @@
 	 $.post("/json/saveentry", datatosend, 
 		function(data){
              if (data.response == "1"){
-	       entry.next().remove();
-	       entry.next().remove();
-	       entry.removeClass("editing");
+	       entry.next().next().html("Saved!");
+	       setTimeout(function(){entry.next().next().html("Save"); }, 500);
+	       
+	       //entry.next().remove(); //cancel button
+	       //entry.next().remove(); //save button	       
+	       //entry.removeClass("editing");
+	       entry.focus();
              }
              else{
                console.log("unsuccessful save");
@@ -106,7 +110,7 @@
      }
 
      if ( !entry.hasClass("editing") ){
-       entry.after("<button class='entry-cancel-button'>Cancel</button><button class='entry-save-button'>Save</button>");
+       entry.after("<button class='btn entry-cancel-button'>Cancel</button> <button class='btn entry-save-button'>Save</button>");
        entry.data("original-content", entry.html());
        entry.addClass("editing");
      }
