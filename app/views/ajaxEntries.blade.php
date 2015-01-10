@@ -61,14 +61,15 @@
 	 $.post("/json/saveentry", datatosend, 
 		function(data){
              if (data.response == "1"){
-	       entry.next().next().html("Saved!");
-	       setTimeout(function(){entry.next().next().html("Save"); }, 500);
-	       
-	       //entry.next().remove(); //cancel button
-	       //entry.next().remove(); //save button	       
-	       //entry.removeClass("editing");
+	       entry.next().next().html("Saved!").fadeIn(1000);
+	       setTimeout(function(){entry.next().next().html("Save").fadeIn(1000); }, 1000);
+	       entry.data("original-content", entry.html());
 	       entry.focus();
              }
+	     else if (data.response == "2"){ 
+	       //delete
+	       entry.parents(".entryDiv").fadeOut(2000).remove();
+	     }
              else{
                console.log("unsuccessful save");
                $.notify("Error");
@@ -146,6 +147,10 @@
 	     entry.next().remove();
 	     entry.removeClass("editing");
            }
+	   else if (data.response == "2"){ 
+	     //delete
+	     entry.parents(".entryDiv").fadeOut(2000).remove();
+	   }
            else{
              console.log("unsuccessful save");
              $.notify("Error");

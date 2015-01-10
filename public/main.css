@@ -132,7 +132,7 @@ select.form-control{
 }
 
 .entryDiv:hover .edit, .entryDiv:hover .delete{
-  visibility: visible;    
+  visibility: visible;
   transition: all 1s;
 }
 
@@ -142,7 +142,8 @@ select.form-control{
 
 .entryDiv br{
   display: block;
-  margin: 10px 0;
+  font-size: 24px;
+  line-height: 38px;
 }
 
 .homeLoading {
@@ -167,40 +168,23 @@ select.form-control{
   border: 1px solid #eee;
 }
 
-#writingbox, #writingbox:focus {
-  position: fixed;
-  z-index: 0;
-  margin: 0px 0px 0px 0px;
-  /*width: calc(100% - 265px); */
-  width: 1000px;
-  height: 75%; /* TODO need to think of css calc */
-  resize: none;
-  box-shadow: none;
-  color: #111;
-  outline: none;
-  font-size: 20px;
-  line-height: 1.6em;
-  padding: 0;
-  border: none;
-  overflow-y: scroll;
-}
-
 #toolbarWrapper {
   display: none;
 }
 
 .entry-content, .entry-content:focus {
-  font-size: 1.6em;
+  font-size: 24px;
   outline:  0px solid transparent;
-  padding: 3px;
+  padding: 2px;
   border: none;
-  line-height: 1.6em;
+  line-height: 38px;
   margin-bottom: 5px;
+  color: #333;
 }
 
 .entry-content.editing {
   padding: 2px;
-  border: solid 1px #ccc;
+  color: #333;
 }
 
 #new-entry {
@@ -210,7 +194,7 @@ select.form-control{
 
 .entry-content.editing:focus, #new-entry:focus {
   padding: 2px;
-  border: solid 1px #8db9df;
+  outline:  0px solid transparent;
   color: #333;
   text-align: left;
 }

@@ -25,14 +25,19 @@ class JsonController extends BaseController {
     }
     $entry->user()->associate($user);    
     $entry->content = Input::get('content');
-//    $entry->title = substr(explode("\n", Input::get('content'))[0], 0, 100);    
     $entry->save();
 
     if (Input::has("jeditable")){
             return $entry->content;
         }
     else{
-        return Response::json( array('response' => 1, 'entryId' => $entry->id) );
+        if ( in_array( Input::get('content'), array('', '<br>') )) {
+            $entry->delete();
+            return Response::json( array('response' => 2));
+        }
+        else{
+            return Response::json( array('response' => 1, 'entryId' => $entry->id) );
+        }
     }
   }
 
