@@ -1,11 +1,15 @@
 @extends('main')
 
 @section('content') 
-  {{ Form::open(array('url'=>'users/signin', 'class'=>'form-signin')) }}
+{{ Form::open(array('url'=>'users/signin', 'class'=>'form-signin', 'role'=>'form')) }}
   <h2 class="form-signin-heading">Please Login</h2>
   
-  {{ Form::text('email', null, array('class'=>'input-block-level', 'placeholder'=>'Email Address')) }}
-  {{ Form::password('password', array('class'=>'input-block-level', 'placeholder'=>'Password')) }}
+  <div class="form-group">
+    {{ Form::text('email', null, array('class'=>'input-block-level', 'placeholder'=>'Email Address')) }}
+  </div>
+  <div class="form-group">
+    {{ Form::password('password', array('class'=>'input-block-level', 'placeholder'=>'Password')) }}
+  </div>
   
   {{ Form::submit('Login', array('class'=>'btn btn-large btn-primary btn-block'))}}
   {{ Form::close() }}

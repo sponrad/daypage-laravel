@@ -57,6 +57,7 @@
 	 var content = $(entry).html();
 	 var date = dpFormat(selectedDate);
 	 var datatosend = {id: id, content: content, date: date};
+	 entry.next().next().html("Saving");
 
 	 $.post("/json/saveentry", datatosend, 
 		function(data){

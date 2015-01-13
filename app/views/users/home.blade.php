@@ -117,6 +117,7 @@
        var content = $(target).val();
        var date = dpFormat(selectedDate);
        var datatosend = {id: id, content: content, date: date};
+
        $.post("/json/saveentry", datatosend, 
               function(data){
            if (data.response == "1"){
